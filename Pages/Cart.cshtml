@@ -1,0 +1,22 @@
+@page
+@model Application.Pages.CartModel
+
+<h1>Cart</h1>
+
+@{
+    double total = 0;
+}
+
+@foreach (var item in CartModel.Cart)
+{
+    <div style="margin:10px;">
+        <p>@item.Product.Name × @item.Quantity</p>
+        <p>@(item.Product.Price * item.Quantity) $</p>
+    </div>
+
+    total += item.Product.Price * item.Quantity;
+}
+
+<h2>Total: @total $</h2>
+
+<a href="/">⬅ Back to Shop</a>

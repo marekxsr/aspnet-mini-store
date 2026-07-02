@@ -1,0 +1,26 @@
+﻿@page
+@model Application.Pages.IndexModel
+
+<div class="shop">
+
+    <header>My Shop</header>
+
+    <div class="container">
+
+        @foreach (var p in Model.Products)
+        {
+            <div class="card">
+                <h3>@p.Name</h3>
+
+                <p class="price">@p.Price $</p>
+
+                <form method="post" asp-page="/Cart">
+                    <input type="hidden" name="id" value="@p.Id" />
+                    <button>Add to Cart</button>
+                </form>
+            </div>
+        }
+
+    </div>
+
+</div>
